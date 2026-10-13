@@ -140,16 +140,11 @@ h3 {
     gap: 0.8rem;
 }
 
-.brand-mark {
-    width: 52px;
-    height: 52px;
-    border-radius: 14px;
-    display: grid;
-    place-items: center;
-    background: linear-gradient(135deg, var(--primary), #1a8d88);
-    color: var(--white);
-    font-weight: 800;
-    box-shadow: var(--shadow);
+.brand-logo {
+    width: 58px;
+    height: 58px;
+    flex: 0 0 auto;
+    object-fit: contain;
 }
 
 .brand-name {

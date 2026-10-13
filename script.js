@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const parentPhone = formData.get("parentPhone")?.toString().trim() || "";
         const parentEmail = formData.get("parentEmail")?.toString().trim() || "";
         const gradeLevel = formData.get("gradeLevel")?.toString().trim() || "Not specified";
-        const enquiryType = formData.get("enquiryType")?.toString().trim() || "General enquiry";
         const message = formData.get("message")?.toString().trim() || "No additional details provided.";
         const contactMethod = formData.get("contactMethod")?.toString().trim() || "WhatsApp";
 
@@ -20,8 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const schoolEmail = "st.elizabethmulalaschool@gmail.com";
 
         const enquiryText = [
-            "New school enquiry",
-            `Information Requested: ${enquiryType}`,
+            "Parent enquiry for the school secretary",
             `Student Name: ${studentName}`,
             `Parent Name: ${parentName}`,
             `Parent Phone / WhatsApp: ${parentPhone}`,
@@ -29,23 +27,23 @@ document.addEventListener("DOMContentLoaded", () => {
             `Grade Level: ${gradeLevel}`,
             `Preferred Contact Method: ${contactMethod}`,
             `Parent Message: ${message}`,
-            "Please contact the parent. Verify parent/guardian identity before sharing any student fee or performance records."
+            "Please reply to the parent. Verify parent/guardian identity before sharing private student or school documents."
         ].join("\n");
 
-        const subject = encodeURIComponent("Parent enquiry for the school office");
+        const subject = encodeURIComponent("Parent enquiry for the school secretary");
         const encodedEnquiry = encodeURIComponent(enquiryText);
         const status = document.querySelector("#enquiry-status");
         let contactUrl;
 
         if (contactMethod === "Email") {
             contactUrl = `mailto:${schoolEmail}?subject=${subject}&body=${encodedEnquiry}`;
-            status.textContent = "Your email app will open with a draft. Review it and send it to contact the school.";
+            status.textContent = "Your email app will open with a draft. Review it and send it to the school secretary.";
         } else if (contactMethod === "Phone Call") {
             contactUrl = `tel:${schoolSecretaryPhone}`;
-            status.textContent = "Your phone app will open. Ask the school office to speak with the secretary.";
+            status.textContent = "Your phone app will open so you can call the school secretary.";
         } else {
             contactUrl = `https://wa.me/${schoolSecretaryPhone.replace("+", "")}?text=${encodedEnquiry}`;
-            status.textContent = "WhatsApp will open with a draft. Review it and tap Send to contact the school.";
+            status.textContent = "WhatsApp will open with a draft. Review it and tap Send to contact the secretary.";
         }
 
         window.open(contactUrl, "_blank", "noopener,noreferrer");
