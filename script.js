@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const contactMethod = formData.get("contactMethod")?.toString().trim() || "WhatsApp";
 
         const schoolSecretaryPhone = "+254720122236";
-        const schoolEmail = "stelizabeth986@gmail.com";
+        const schoolEmail = "st.elizabethmulalaschool@gmail.com";
 
         const enquiryText = [
             "New school enquiry",
